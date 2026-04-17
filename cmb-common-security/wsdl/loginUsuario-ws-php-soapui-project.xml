@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1b0d74e6-9542-48de-a156-b31b4cf49898" activeEnvironment="Default" name="loginUsuario.ws.php" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="86b51387-0506-4045-81df-f0ae17b4283e" wsaVersion="NONE" name="CPABinding" type="wsdl" bindingName="{urn:CPA}CPABinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/CMB/loginUsuario.ws.php.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\CMB\loginUsuario.ws.php.xml"><con:part><con:url>file:\C:\CMB\loginUsuario.ws.php.xml</con:url><con:content><![CDATA[<definitions targetNamespace="urn:CPA" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:CPA" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:CPA">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="args">
+        <xsd:all>
+          <xsd:element name="idSistema" type="xsd:int"/>
+          <xsd:element name="login" type="xsd:string"/>
+          <xsd:element name="pwd" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="matr">
+        <xsd:all>
+          <xsd:element name="idSistema" type="xsd:int"/>
+          <xsd:element name="matricula" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="funcs">
+        <xsd:all>
+          <xsd:element name="idSistema" type="xsd:int"/>
+          <xsd:element name="idFuncionalidade" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="LoginRequest">
+    <part name="args" type="tns:args"/>
+  </message>
+  <message name="LoginResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="LoginSGDOCRequest">
+    <part name="args" type="tns:args"/>
+  </message>
+  <message name="LoginSGDOCResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="LoginASPRequest">
+    <part name="idSistema" type="xsd:string"/>
+    <part name="login" type="xsd:string"/>
+    <part name="pwd" type="xsd:string"/>
+  </message>
+  <message name="LoginASPResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="dadosUsuarioRequest">
+    <part name="matr" type="tns:matr"/>
+  </message>
+  <message name="dadosUsuarioResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="dadosLotacaoRequest">
+    <part name="ccusto" type="xsd:string"/>
+  </message>
+  <message name="dadosLotacaoResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="UsuaWithPermRequest">
+    <part name="funcs" type="tns:funcs"/>
+  </message>
+  <message name="UsuaWithPermResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="isUserRequest">
+    <part name="args" type="tns:args"/>
+  </message>
+  <message name="isUserResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="validateRequest">
+    <part name="user" type="xsd:string"/>
+    <part name="pass" type="xsd:string"/>
+  </message>
+  <message name="validateResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="loadUserRequest">
+    <part name="args" type="tns:args"/>
+  </message>
+  <message name="loadUserResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="retornaPermissoesSGDOCRequest">
+    <part name="identifier" type="tns:args"/>
+  </message>
+  <message name="retornaPermissoesSGDOCResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <portType name="CPAPortType">
+    <operation name="Login">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:LoginRequest"/>
+      <output message="tns:LoginResponse"/>
+    </operation>
+    <operation name="LoginSGDOC">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:LoginSGDOCRequest"/>
+      <output message="tns:LoginSGDOCResponse"/>
+    </operation>
+    <operation name="LoginASP">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:LoginASPRequest"/>
+      <output message="tns:LoginASPResponse"/>
+    </operation>
+    <operation name="dadosUsuario">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:dadosUsuarioRequest"/>
+      <output message="tns:dadosUsuarioResponse"/>
+    </operation>
+    <operation name="dadosLotacao">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:dadosLotacaoRequest"/>
+      <output message="tns:dadosLotacaoResponse"/>
+    </operation>
+    <operation name="UsuaWithPerm">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:UsuaWithPermRequest"/>
+      <output message="tns:UsuaWithPermResponse"/>
+    </operation>
+    <operation name="isUser">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:isUserRequest"/>
+      <output message="tns:isUserResponse"/>
+    </operation>
+    <operation name="validate">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:validateRequest"/>
+      <output message="tns:validateResponse"/>
+    </operation>
+    <operation name="loadUser">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:loadUserRequest"/>
+      <output message="tns:loadUserResponse"/>
+    </operation>
+    <operation name="retornaPermissoesSGDOC">
+      <documentation>Says hello to the caller</documentation>
+      <input message="tns:retornaPermissoesSGDOCRequest"/>
+      <output message="tns:retornaPermissoesSGDOCResponse"/>
+    </operation>
+  </portType>
+  <binding name="CPABinding" type="tns:CPAPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Login">
+      <soap:operation soapAction="urn:Loginwsdl#Login" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="LoginSGDOC">
+      <soap:operation soapAction="urn:Loginwsdl#Login" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="LoginASP">
+      <soap:operation soapAction="urn:LoginASPwsdl#LoginASP" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:LoginASPwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:LoginASPwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="dadosUsuario">
+      <soap:operation soapAction="urn:dadosUsuariowsdl#dadosUsuario" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:dadosUsuariowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:dadosUsuariowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="dadosLotacao">
+      <soap:operation soapAction="urn:dadosLotacaowsdl#dadosLotacao" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:dadosLotacaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:dadosLotacaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="UsuaWithPerm">
+      <soap:operation soapAction="urn:UsuaWithPermwsdl#UsuaWithPerm" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:UsuaWithPermwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:UsuaWithPermwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="isUser">
+      <soap:operation soapAction="urn:isUserwsdl#isUser" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:isUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:isUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="validate">
+      <soap:operation soapAction="urn:validatewsdl#validate" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:validatewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:validatewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="loadUser">
+      <soap:operation soapAction="urn:loadUserwsdl#loadUser" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:loadUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:loadUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="retornaPermissoesSGDOC">
+      <soap:operation soapAction="urn:retornaPermissoesSGDOCwsdl#retornaPermissoesSGDOC" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:retornaPermissoesSGDOCwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:retornaPermissoesSGDOCwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CPA">
+    <port name="CPAPort" binding="tns:CPABinding">
+      <soap:address location="http://cmbaplicphp/cpa/loginUsuario.ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://adriano-PC:8082/mockCPABinding</con:endpoint><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint></con:endpoints><con:operation id="59561242-e4af-4522-98b3-e630f041bf47" isOneWay="false" action="urn:dadosLotacaowsdl#dadosLotacao" name="dadosLotacao" bindingOperationName="dadosLotacao" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="50e4aac5-78b2-46bf-8984-8c2e21ebf2aa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:dadosLotacaowsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:dadosLotacao soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <ccusto xsi:type="xsd:string">?</ccusto>\r
+      </urn:dadosLotacao>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:dadosLotacaowsdl#dadosLotacao"/></con:call></con:operation><con:operation id="c3533e86-d141-4c42-a62a-86c8b6e0c1de" isOneWay="false" action="urn:dadosUsuariowsdl#dadosUsuario" name="dadosUsuario" bindingOperationName="dadosUsuario" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3df57169-efdd-46dc-9fc2-f1a2df0843ba" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:dadosUsuariowsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:dadosUsuario soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <matr xsi:type="urn:matr" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <matricula xsi:type="xsd:string">?</matricula>\r
+         </matr>\r
+      </urn:dadosUsuario>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:dadosUsuariowsdl#dadosUsuario"/></con:call></con:operation><con:operation id="3517736a-42f1-44fa-b0a0-0cf9edaa3dd7" isOneWay="false" action="urn:isUserwsdl#isUser" name="isUser" bindingOperationName="isUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fb3ad77d-3585-4a0d-a341-3a95fe9abb07" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:isUserwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:isUser soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <args xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </args>\r
+      </urn:isUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:isUserwsdl#isUser"/></con:call></con:operation><con:operation id="0b40f259-cfac-4cdb-b7d1-3b6b92d0ee41" isOneWay="false" action="urn:loadUserwsdl#loadUser" name="loadUser" bindingOperationName="loadUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dd95c58f-73f4-4b3c-97e0-2fa84f7b1552" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:loadUserwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:loadUser soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <args xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </args>\r
+      </urn:loadUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:loadUserwsdl#loadUser"/></con:call></con:operation><con:operation id="c7f950f7-2211-4640-afd3-535cf857a27f" isOneWay="false" action="urn:Loginwsdl#Login" name="Login" bindingOperationName="Login" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c9e6b753-fc08-4e1f-bbde-0ee9b66b9eed" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:Loginwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:Login soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <args xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </args>\r
+      </urn:Login>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:Loginwsdl#Login"/><con:wsrmConfig version="1.2"/></con:call><con:call id="52273f0e-fae5-4403-9ec1-822bd0daeaca" name="Request 2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://adriano-PC:8082/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:Loginwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:Login soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <args xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </args>\r
+      </urn:Login>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:Loginwsdl#Login"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e0d278b1-b5bd-4eac-837d-95ad9ada8c0c" isOneWay="false" action="urn:LoginASPwsdl#LoginASP" name="LoginASP" bindingOperationName="LoginASP" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3143882f-95dc-4e2f-88a6-6125b73ff1f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://adriano-PC:8082/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:LoginASPwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:LoginASP soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <idSistema xsi:type="xsd:string">?</idSistema>\r
+         <login xsi:type="xsd:string">?</login>\r
+         <pwd xsi:type="xsd:string">?</pwd>\r
+      </urn:LoginASP>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:LoginASPwsdl#LoginASP"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3890898e-0618-41c3-b2cc-6c4833c06251" isOneWay="false" action="urn:Loginwsdl#Login" name="LoginSGDOC" bindingOperationName="LoginSGDOC" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4367068f-73d2-4a0f-b7f8-cb671446d403" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:Loginwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:LoginSGDOC soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <args xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </args>\r
+      </urn:LoginSGDOC>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:Loginwsdl#Login"/></con:call></con:operation><con:operation id="4f6c963a-e0d9-4198-b924-73b317997a5d" isOneWay="false" action="urn:retornaPermissoesSGDOCwsdl#retornaPermissoesSGDOC" name="retornaPermissoesSGDOC" bindingOperationName="retornaPermissoesSGDOC" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3e9c035-ef35-4c73-b7a6-5527f2873e9c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:retornaPermissoesSGDOCwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:retornaPermissoesSGDOC soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <identifier xsi:type="urn:args" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <login xsi:type="xsd:string">?</login>\r
+            <pwd xsi:type="xsd:string">?</pwd>\r
+         </identifier>\r
+      </urn:retornaPermissoesSGDOC>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:retornaPermissoesSGDOCwsdl#retornaPermissoesSGDOC"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9b0d1c45-169f-4036-baa7-fd0ea6c18010" isOneWay="false" action="urn:UsuaWithPermwsdl#UsuaWithPerm" name="UsuaWithPerm" bindingOperationName="UsuaWithPerm" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2b080c22-0a68-49ba-909e-99ee1688f1dd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:UsuaWithPermwsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:UsuaWithPerm soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <funcs xsi:type="urn:funcs" xmlns:urn="urn:CPA">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <idSistema xsi:type="xsd:int">?</idSistema>\r
+            <idFuncionalidade xsi:type="xsd:string">?</idFuncionalidade>\r
+         </funcs>\r
+      </urn:UsuaWithPerm>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:UsuaWithPermwsdl#UsuaWithPerm"/></con:call></con:operation><con:operation id="a9bb3416-580a-47a5-8051-955015a8505a" isOneWay="false" action="urn:validatewsdl#validate" name="validate" bindingOperationName="validate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6697c3cf-8f2f-4f54-9320-fb563117f7ad" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://cmbaplicphp/cpa/loginUsuario.ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:validatewsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:validate soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <user xsi:type="xsd:string">?</user>\r
+         <pass xsi:type="xsd:string">?</pass>\r
+      </urn:validate>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:validatewsdl#validate"/></con:call></con:operation></con:interface><con:mockService id="daa5331f-7370-4f3e-8fdc-e1f3174a2bcb" port="8082" path="/" host="localhost" name="CPAMockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="Login" id="985a89c0-1be1-4a76-ad57-52a7c2fda899" interface="CPABinding" operation="Login"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="9e533fe2-2c4c-465e-bc4c-5917492a3323" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:Loginwsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:LoginResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <return xsi:type="xsd:string">{"idSistema":"39","matricula":"004359","login":"004359","senha":null,"nome":"NOME DO FUNCIONARIO","cpf":"00000000000","email":"vlivramento@cmb.gov.br","emailLotacao":"emailsecao@cmb.gov.br","idLotacao":"27120","desLotacao":"DITEC\/DETIC\/DVGO\/SEPN","siglaLotacao":"SEPN","admissao":"01\/01\/1900","aniversario":"01\/01\/1900","ramal":"","ramalLotacao":"","cargo":"cargo do funcionario - cargo","funcao":"","gestao":null,"lotacoes":null,"permissao":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"idUsuario":1746,"status":1}</return>
+      </urn:LoginResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:Loginwsdl#Login"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

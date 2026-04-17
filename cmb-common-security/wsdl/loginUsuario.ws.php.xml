@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:CPA" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:CPA">
+<types>
+<xsd:schema targetNamespace="urn:CPA"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="args">
+  <xsd:all>
+   <xsd:element name="idSistema" type="xsd:int"/>
+   <xsd:element name="login" type="xsd:string"/>
+   <xsd:element name="pwd" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="matr">
+  <xsd:all>
+   <xsd:element name="idSistema" type="xsd:int"/>
+   <xsd:element name="matricula" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="funcs">
+  <xsd:all>
+   <xsd:element name="idSistema" type="xsd:int"/>
+   <xsd:element name="idFuncionalidade" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+</xsd:schema>
+</types>
+<message name="LoginRequest">
+  <part name="args" type="tns:args" /></message>
+<message name="LoginResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="LoginSGDOCRequest">
+  <part name="args" type="tns:args" /></message>
+<message name="LoginSGDOCResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="LoginASPRequest">
+  <part name="idSistema" type="xsd:string" />
+  <part name="login" type="xsd:string" />
+  <part name="pwd" type="xsd:string" /></message>
+<message name="LoginASPResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="dadosUsuarioRequest">
+  <part name="matr" type="tns:matr" /></message>
+<message name="dadosUsuarioResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="dadosLotacaoRequest">
+  <part name="ccusto" type="xsd:string" /></message>
+<message name="dadosLotacaoResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="UsuaWithPermRequest">
+  <part name="funcs" type="tns:funcs" /></message>
+<message name="UsuaWithPermResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="isUserRequest">
+  <part name="args" type="tns:args" /></message>
+<message name="isUserResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="validateRequest">
+  <part name="user" type="xsd:string" />
+  <part name="pass" type="xsd:string" /></message>
+<message name="validateResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="loadUserRequest">
+  <part name="args" type="tns:args" /></message>
+<message name="loadUserResponse">
+  <part name="return" type="xsd:string" /></message>
+<message name="retornaPermissoesSGDOCRequest">
+  <part name="identifier" type="tns:args" /></message>
+<message name="retornaPermissoesSGDOCResponse">
+  <part name="return" type="xsd:string" /></message>
+<portType name="CPAPortType">
+  <operation name="Login">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:LoginRequest"/>
+    <output message="tns:LoginResponse"/>
+  </operation>
+  <operation name="LoginSGDOC">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:LoginSGDOCRequest"/>
+    <output message="tns:LoginSGDOCResponse"/>
+  </operation>
+  <operation name="LoginASP">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:LoginASPRequest"/>
+    <output message="tns:LoginASPResponse"/>
+  </operation>
+  <operation name="dadosUsuario">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:dadosUsuarioRequest"/>
+    <output message="tns:dadosUsuarioResponse"/>
+  </operation>
+  <operation name="dadosLotacao">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:dadosLotacaoRequest"/>
+    <output message="tns:dadosLotacaoResponse"/>
+  </operation>
+  <operation name="UsuaWithPerm">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:UsuaWithPermRequest"/>
+    <output message="tns:UsuaWithPermResponse"/>
+  </operation>
+  <operation name="isUser">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:isUserRequest"/>
+    <output message="tns:isUserResponse"/>
+  </operation>
+  <operation name="validate">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:validateRequest"/>
+    <output message="tns:validateResponse"/>
+  </operation>
+  <operation name="loadUser">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:loadUserRequest"/>
+    <output message="tns:loadUserResponse"/>
+  </operation>
+  <operation name="retornaPermissoesSGDOC">
+    <documentation>Says hello to the caller</documentation>
+    <input message="tns:retornaPermissoesSGDOCRequest"/>
+    <output message="tns:retornaPermissoesSGDOCResponse"/>
+  </operation>
+</portType>
+<binding name="CPABinding" type="tns:CPAPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="Login">
+    <soap:operation soapAction="urn:Loginwsdl#Login" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LoginSGDOC">
+    <soap:operation soapAction="urn:Loginwsdl#Login" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:Loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LoginASP">
+    <soap:operation soapAction="urn:LoginASPwsdl#LoginASP" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:LoginASPwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:LoginASPwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="dadosUsuario">
+    <soap:operation soapAction="urn:dadosUsuariowsdl#dadosUsuario" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:dadosUsuariowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:dadosUsuariowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="dadosLotacao">
+    <soap:operation soapAction="urn:dadosLotacaowsdl#dadosLotacao" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:dadosLotacaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:dadosLotacaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="UsuaWithPerm">
+    <soap:operation soapAction="urn:UsuaWithPermwsdl#UsuaWithPerm" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:UsuaWithPermwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:UsuaWithPermwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="isUser">
+    <soap:operation soapAction="urn:isUserwsdl#isUser" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:isUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:isUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="validate">
+    <soap:operation soapAction="urn:validatewsdl#validate" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:validatewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:validatewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="loadUser">
+    <soap:operation soapAction="urn:loadUserwsdl#loadUser" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:loadUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:loadUserwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="retornaPermissoesSGDOC">
+    <soap:operation soapAction="urn:retornaPermissoesSGDOCwsdl#retornaPermissoesSGDOC" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:retornaPermissoesSGDOCwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:retornaPermissoesSGDOCwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="CPA">
+  <port name="CPAPort" binding="tns:CPABinding">
+    <soap:address location="http://cmbaplicphp/cpa/loginUsuario.ws.php"/>
+  </port>
+</service>
+</definitions>

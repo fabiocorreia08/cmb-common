@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<name>cmb-common</name>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.gov.cmb</groupId>
+	<artifactId>cmb-common</artifactId>
+	<version>3.6.0</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>cmb-common-email</module>
+		<module>cmb-common-ejb</module>
+		<module>cmb-common-exception</module>
+		<module>cmb-common-exporter</module>
+		<module>cmb-common-rest</module>
+		<module>cmb-common-util</module>
+		<module>cmb-common-web</module>
+		<module>cmb-common-security</module>
+		<module>cmb-common-auditoria</module>
+		<module>cmb-common-certificado</module>
+		<!-- <module>cmb-file-manager-client</module> -->
+	</modules> 
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.jboss.bom>8.2.1.Final</version.jboss.bom>
+		<version.compiler.plugin>3.1</version.compiler.plugin>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<resteasy.version>3.1.0.Final</resteasy.version>
+		<spring.security.version>3.2.7.RELEASE</spring.security.version>
+		
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-with-tools</artifactId>
+				<version>${version.jboss.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-with-hibernate</artifactId>
+				<version>${version.jboss.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		<!-- <dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-bom</artifactId>
+				<version>${resteasy.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency> -->
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<version>${spring.security.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> 
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<scope>provided</scope>
+				<version>21.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>br.gov.cmb</groupId>
+				<artifactId>cmb-common-util</artifactId>
+				<scope>provided</scope>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>br.gov.cmb</groupId>
+				<artifactId>cmb-common-exception</artifactId>
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>br.gov.cmb</groupId>
+				<artifactId>cmb-common-rest</artifactId>
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>br.gov.cmb</groupId>
+				<artifactId>cmb-common-ejb</artifactId>
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.9.7</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>cmb-releases</id>
+			<!-- <url>http://cmbaplicsvn:8181/archiva/repository/internal/</url> -->
+			<url>http://repositoriopublico.casadamoeda.gov.br/repository/internal/</url>
+
+		</repository>
+		<repository>
+			<id>Central</id>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>
