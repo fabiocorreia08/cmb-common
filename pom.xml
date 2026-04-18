@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.gov.cmb</groupId>
 	<artifactId>cmb-common</artifactId>
-	<version>3.6.0</version>
+	<version>4.0.0</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -22,17 +22,16 @@
 		<module>cmb-common-auditoria</module>
 		<module>cmb-common-certificado</module>
 		<!-- <module>cmb-file-manager-client</module> -->
-	</modules> 
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.jboss.bom>8.2.1.Final</version.jboss.bom>
 		<version.compiler.plugin>3.1</version.compiler.plugin>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
 		<resteasy.version>3.1.0.Final</resteasy.version>
 		<spring.security.version>3.2.7.RELEASE</spring.security.version>
-		
 
 	</properties>
 
@@ -54,7 +53,7 @@
 				<scope>import</scope>
 			</dependency>
 
-		<!-- <dependency>
+			<!-- <dependency>
 				<groupId>org.jboss.resteasy</groupId>
 				<artifactId>resteasy-bom</artifactId>
 				<version>${resteasy.version}</version>
@@ -68,7 +67,7 @@
 				<version>${spring.security.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency> 
+			</dependency>
 
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -109,7 +108,8 @@
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>2.9.7</version>
-			</dependency>
+			</dependency>		
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -138,7 +138,8 @@
 		<repository>
 			<id>cmb-releases</id>
 			<!-- <url>http://cmbaplicsvn:8181/archiva/repository/internal/</url> -->
-			<url>http://repositoriopublico.casadamoeda.gov.br/repository/internal/</url>
+			<url>
+				http://repositoriopublico.casadamoeda.gov.br/repository/internal/</url>
 
 		</repository>
 		<repository>

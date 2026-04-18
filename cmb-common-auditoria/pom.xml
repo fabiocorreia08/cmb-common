@@ -9,7 +9,7 @@
 	<parent>
 		<artifactId>cmb-common</artifactId>
 		<groupId>br.gov.cmb</groupId>
-		<version>3.6.0</version>
+		<version>4.0.0</version>
 	</parent>
 	
 	<dependencies>

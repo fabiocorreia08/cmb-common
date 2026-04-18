@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -8,10 +9,12 @@
 	<parent>
 		<artifactId>cmb-common</artifactId>
 		<groupId>br.gov.cmb</groupId>
-		<version>3.6.0</version>
+		<version>4.0.0</version>
 	</parent>
 
 	<dependencies>
+
+		<!-- Dependências internas -->
 		<dependency>
 			<groupId>br.gov.cmb</groupId>
 			<artifactId>cmb-common-ejb</artifactId>
@@ -30,6 +33,7 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- APIs do servidor -->
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>
 			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
@@ -41,14 +45,15 @@
 			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
-				<groupId>org.jboss.logging</groupId>
-				<artifactId>jboss-logging</artifactId>
-				<version>3.1.3.GA</version>
-				<scope>provided</scope>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.1.3.GA</version>
+			<scope>provided</scope>
 		</dependency>
 
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -59,27 +64,63 @@
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
 
+		<!-- Axis 1.4 (com exclusões para evitar conflito com Java 11+) -->
 		<dependency>
 			<groupId>org.apache.axis</groupId>
 			<artifactId>axis</artifactId>
 			<version>1.4</version>
 			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>jaxrpc-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>saaj-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.axis</groupId>
-			<artifactId>axis-jaxrpc</artifactId>
+			<artifactId>axis</artifactId>
 			<version>1.4</version>
 			<scope>compile</scope>
+			<exclusions>
+				<!-- Remove APIs antigas que conflitam com Java 11 -->
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>jaxrpc-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>saaj-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+				<!-- EXCLUSÃO CRÍTICA PARA RESOLVER O ERRO -->
+				<exclusion>
+					<groupId>javax.xml</groupId>
+					<artifactId>namespace</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
+		<!-- wsdl4j (não conflita com Java 11) -->
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 			<version>1.6.2</version>
-			<scope>compile</scope>
 		</dependency>
 
+		<!-- Activation e Mail (compatíveis com Java 11) -->
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
@@ -91,6 +132,7 @@
 			<version>1.4.7</version>
 		</dependency>
 
+		<!-- Commons -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -102,7 +144,35 @@
 			<artifactId>commons-discovery</artifactId>
 			<version>0.5</version>
 		</dependency>
+
+		<!-- JAXB moderno (compatível com Java 11+) -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<!-- javax.annotation (PostConstruct, Resource, etc.) -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.rpc</groupId>
+			<artifactId>javax.xml.rpc-api</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -119,4 +189,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
