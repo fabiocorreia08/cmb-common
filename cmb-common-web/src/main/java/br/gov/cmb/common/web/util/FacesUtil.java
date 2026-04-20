@@ -26,6 +26,7 @@ public final class FacesUtil {
 		return (String) getExternalContext().getRequestParameterMap().get(name);
 	}
 
+	@SuppressWarnings("removal")
 	public static Long getRequestParameterAsLong(String name) {
 		String id = FacesUtil.getRequestParameter(name);
 		if (!Strings.isNullOrEmpty(id)) {

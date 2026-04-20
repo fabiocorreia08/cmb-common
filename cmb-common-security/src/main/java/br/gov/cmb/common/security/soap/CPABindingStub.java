@@ -7,8 +7,10 @@
 
 package br.gov.cmb.common.security.soap;
 
+@SuppressWarnings("rawtypes")
 public class CPABindingStub extends org.apache.axis.client.Stub implements br.gov.cmb.common.security.soap.CPAPortType {
-    private java.util.Vector cachedSerClasses = new java.util.Vector();
+   
+	private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
     private java.util.Vector cachedDeserFactories = new java.util.Vector();

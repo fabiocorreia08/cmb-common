@@ -21,7 +21,7 @@
 		<module>cmb-common-security</module>
 		<module>cmb-common-auditoria</module>
 		<module>cmb-common-certificado</module>
-		<!-- <module>cmb-file-manager-client</module> -->
+		<!-- <module>cmb-file-manager-client</module> -->		
 	</modules>
 
 	<properties>

@@ -59,8 +59,7 @@ public final class JwtTokenHelper {
 	public List<String> getPermissions(String token) {
 		return (List<String>) getClaimValue(token, CLAIM_PERMISSAO);
 	}	
-
-	@SuppressWarnings("unchecked")
+	
 	public Object getDetails(String token) {
 		return getClaimValue(token, CLAIM_DETAILS);
 	}
@@ -87,6 +86,7 @@ public final class JwtTokenHelper {
 	
 
 
+	@SuppressWarnings("unused")
 	private boolean isTokenRefresh(String token) {
 		DateTime expiration = new DateTime(getExpiration(token));
 		return new DateTime().minusMinutes(REFRESH_TOKEN_MINUTES).isAfter(expiration);

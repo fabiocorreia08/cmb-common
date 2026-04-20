@@ -3,6 +3,7 @@ package br.gov.cmb.commons.certificado.oid;
 
 public class OIDFactory {
 
+	@SuppressWarnings("deprecation")
 	public static OIDGeneric createInstance(String oid) throws Exception {
 		String packageName =  OIDFactory.class.getPackage().getName();
 		String className = packageName + ".OID_" + oid.replaceAll("[.]", "_");

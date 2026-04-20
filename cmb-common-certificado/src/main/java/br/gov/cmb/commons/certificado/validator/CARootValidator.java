@@ -23,6 +23,7 @@ public class CARootValidator implements CertificateValidator {
 		this.caProvider = caProvider;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void validate(ICPBRCertificate cert) throws CertificateValidationException {
 		

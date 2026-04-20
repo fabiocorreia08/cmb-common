@@ -7,8 +7,6 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.gov.cmb.common.util.CollectionUtils;
-
 public class CollectionUtilsIsNotEmptyTest {
 
     @Test

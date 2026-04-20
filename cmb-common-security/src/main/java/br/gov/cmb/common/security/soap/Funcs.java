@@ -7,8 +7,12 @@
 
 package br.gov.cmb.common.security.soap;
 
+
 public class Funcs  implements java.io.Serializable {
-    private int idSistema;
+
+	private static final long serialVersionUID = 1L;
+
+	private int idSistema;
 
     private java.lang.String idFuncionalidade;
 

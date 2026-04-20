@@ -9,10 +9,13 @@ import javax.persistence.Query;
 import br.gov.cmb.common.ejb.paginacao.Pagina;
 import br.gov.cmb.common.exception.runtime.DAOException;
 
+
 public abstract class GenericoPaginadoDAO<T extends Serializable, P> extends
         GenericoDAO<T, P> {
 
-    private static final String FETCH = "FETCH";
+    private static final long serialVersionUID = 1L;
+    
+	private static final String FETCH = "FETCH";
     private static final String SELECT = "SELECT";
     private static final String FROM = "FROM";
     private static final String COUNT = "SELECT count(1) ";

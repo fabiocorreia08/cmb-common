@@ -7,181 +7,170 @@
 
 package br.gov.cmb.common.security.soap;
 
-public class Args  implements java.io.Serializable {
-    private int idSistema;
+public class Args implements java.io.Serializable {
 
-    private java.lang.String login;
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String pwd;
+	private int idSistema;
 
-    public Args() {
-    }
+	private java.lang.String login;
 
-    public Args(
-           int idSistema,
-           java.lang.String login,
-           java.lang.String pwd) {
-           this.idSistema = idSistema;
-           this.login = login;
-           this.pwd = pwd;
-    }
+	private java.lang.String pwd;
 
+	public Args() {
+	}
 
-    /**
-     * Gets the idSistema value for this Args.
-     * 
-     * @return idSistema
-     */
-    public int getIdSistema() {
-        return idSistema;
-    }
+	public Args(int idSistema, java.lang.String login, java.lang.String pwd) {
+		this.idSistema = idSistema;
+		this.login = login;
+		this.pwd = pwd;
+	}
 
+	/**
+	 * Gets the idSistema value for this Args.
+	 * 
+	 * @return idSistema
+	 */
+	public int getIdSistema() {
+		return idSistema;
+	}
 
-    /**
-     * Sets the idSistema value for this Args.
-     * 
-     * @param idSistema
-     */
-    public void setIdSistema(int idSistema) {
-        this.idSistema = idSistema;
-    }
+	/**
+	 * Sets the idSistema value for this Args.
+	 * 
+	 * @param idSistema
+	 */
+	public void setIdSistema(int idSistema) {
+		this.idSistema = idSistema;
+	}
 
+	/**
+	 * Gets the login value for this Args.
+	 * 
+	 * @return login
+	 */
+	public java.lang.String getLogin() {
+		return login;
+	}
 
-    /**
-     * Gets the login value for this Args.
-     * 
-     * @return login
-     */
-    public java.lang.String getLogin() {
-        return login;
-    }
+	/**
+	 * Sets the login value for this Args.
+	 * 
+	 * @param login
+	 */
+	public void setLogin(java.lang.String login) {
+		this.login = login;
+	}
 
+	/**
+	 * Gets the pwd value for this Args.
+	 * 
+	 * @return pwd
+	 */
+	public java.lang.String getPwd() {
+		return pwd;
+	}
 
-    /**
-     * Sets the login value for this Args.
-     * 
-     * @param login
-     */
-    public void setLogin(java.lang.String login) {
-        this.login = login;
-    }
+	/**
+	 * Sets the pwd value for this Args.
+	 * 
+	 * @param pwd
+	 */
+	public void setPwd(java.lang.String pwd) {
+		this.pwd = pwd;
+	}
 
+	private java.lang.Object __equalsCalc = null;
 
-    /**
-     * Gets the pwd value for this Args.
-     * 
-     * @return pwd
-     */
-    public java.lang.String getPwd() {
-        return pwd;
-    }
+	@SuppressWarnings("unused")
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof Args))
+			return false;
+		Args other = (Args) obj;
+		if (obj == null)
+			return false;
+		if (this == obj)
+			return true;
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && this.idSistema == other.getIdSistema()
+				&& ((this.login == null && other.getLogin() == null)
+						|| (this.login != null && this.login.equals(other.getLogin())))
+				&& ((this.pwd == null && other.getPwd() == null)
+						|| (this.pwd != null && this.pwd.equals(other.getPwd())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
+	private boolean __hashCodeCalc = false;
 
-    /**
-     * Sets the pwd value for this Args.
-     * 
-     * @param pwd
-     */
-    public void setPwd(java.lang.String pwd) {
-        this.pwd = pwd;
-    }
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		_hashCode += getIdSistema();
+		if (getLogin() != null) {
+			_hashCode += getLogin().hashCode();
+		}
+		if (getPwd() != null) {
+			_hashCode += getPwd().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Args)) return false;
-        Args other = (Args) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            this.idSistema == other.getIdSistema() &&
-            ((this.login==null && other.getLogin()==null) || 
-             (this.login!=null &&
-              this.login.equals(other.getLogin()))) &&
-            ((this.pwd==null && other.getPwd()==null) || 
-             (this.pwd!=null &&
-              this.pwd.equals(other.getPwd())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(Args.class,
+			true);
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        _hashCode += getIdSistema();
-        if (getLogin() != null) {
-            _hashCode += getLogin().hashCode();
-        }
-        if (getPwd() != null) {
-            _hashCode += getPwd().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:CPA", "args"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("idSistema");
+		elemField.setXmlName(new javax.xml.namespace.QName("", "idSistema"));
+		elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("login");
+		elemField.setXmlName(new javax.xml.namespace.QName("", "login"));
+		elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("pwd");
+		elemField.setXmlName(new javax.xml.namespace.QName("", "pwd"));
+		elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Args.class, true);
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:CPA", "args"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("idSistema");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "idSistema"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("login");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "login"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("pwd");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "pwd"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(java.lang.String mechType,
+			@SuppressWarnings("rawtypes") java.lang.Class _javaType, javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType, _xmlType, typeDesc);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(java.lang.String mechType,
+			@SuppressWarnings("rawtypes") java.lang.Class _javaType, javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType, _xmlType, typeDesc);
+	}
 
 }

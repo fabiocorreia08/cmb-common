@@ -53,7 +53,8 @@ public final class ReflectionUtils {
         }
     }
     
-    public static  <T> T instanciar(Class<T> classe) {
+    @SuppressWarnings("deprecation")
+	public static  <T> T instanciar(Class<T> classe) {
         try{
             T instancia = classe.newInstance();
             

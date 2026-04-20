@@ -32,7 +32,8 @@ public class CertificateUtil {
     }
 
 
-    public static ICPBRCertificate fromPEMtoX509Certificate(String pem) throws CertificateException, IOException {
+    @SuppressWarnings("resource")
+	public static ICPBRCertificate fromPEMtoX509Certificate(String pem) throws CertificateException, IOException {
         X509Certificate cert = null;
         StringReader reader = new StringReader(pem);
         PEMParser pr = new PEMParser(reader);

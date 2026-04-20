@@ -13,8 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.gov.cmb.common.email.entidade.TipoEmail;
-
 @Entity
 @Table(name = "TEMPLATE")
 public class Template implements Serializable{

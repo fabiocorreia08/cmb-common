@@ -33,6 +33,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>br.gov.cmb</groupId>
+			<artifactId>cmb-common-soap</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- APIs do servidor -->
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>

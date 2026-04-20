@@ -16,7 +16,8 @@ import br.gov.cmb.common.util.ReflectionUtils;
 
 public final class ExecutorDeValidacao {
 
-    private static final String FORAM_ENCONTRADOS_ERROS = "Foram encontrados erros";
+    @SuppressWarnings("unused")
+	private static final String FORAM_ENCONTRADOS_ERROS = "Foram encontrados erros";
 
     private ExecutorDeValidacao() {
     }
