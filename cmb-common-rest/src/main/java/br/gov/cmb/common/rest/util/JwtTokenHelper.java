@@ -1,5 +1,6 @@
 package br.gov.cmb.common.rest.util;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 
@@ -35,19 +36,24 @@ public final class JwtTokenHelper {
 	}
 
 	public String generateToken(String id, List<String> permissoes, Object details) {
-		try {
-			DateTime now = new DateTime();
-			return Jwts.builder()
-					.setId(id)
-					.setIssuedAt(now.toDate())
-					.setExpiration(now.plusMinutes(this.tempoExpiracao).toDate())
-					.claim(CLAIM_PERMISSAO, permissoes)
-					.claim(CLAIM_DETAILS, details)
-					.signWith(SignatureAlgorithm.HS512, this.signKey)
-					.compact();		
-		} catch (Exception e) {
-			throw new CMBRuntimeException("Erro ao gerar Token");
-		}
+	    try {
+	        DateTime now = new DateTime();
+
+	        return Jwts.builder()
+	            .setId(id)
+	            .setIssuedAt(now.toDate())
+	            .setExpiration(now.plusMinutes(this.tempoExpiracao).toDate())
+	            .claim(CLAIM_PERMISSAO, permissoes)
+	            .claim(CLAIM_DETAILS, details)
+	            .signWith(
+	                SignatureAlgorithm.HS512,
+	                this.signKey.getBytes(StandardCharsets.UTF_8) // ✅ byte[]
+	            )
+	            .compact();
+
+	    } catch (Exception e) {
+	        throw new CMBRuntimeException("Erro ao gerar Token", e);
+	    }
 	}
 
 
